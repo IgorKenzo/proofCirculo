@@ -29,19 +29,20 @@ namespace proofCirculo
             int centroX = this.Width / 2;
             int centroY = this.Height / 2;
             int numFab = qtd * 2 + 1;
-            double diffAng = 360 / qtd;
+            double diffAng = 360 / numFab;
+            int raio = 200;
+
             Image imgCoronga = Properties.Resources.img;
 
             for(int i = 0; i < numFab; i++)
             {
                 PictureBox img = new PictureBox();
                 img.Name = "img" + i;   
-                img.Location = new Point(centroX + Convert.ToInt32(Math.Cos(diffAng * Math.PI/180 * i) * 2), centroY + Convert.ToInt32(Math.Sin(diffAng * Math.PI / 180 *  i) * 2));
+                img.Location = new Point(centroX + Convert.ToInt32(Math.Round(Math.Cos(diffAng * Math.PI/180 * i) * raio)), centroY + Convert.ToInt32(Math.Round(Math.Sin(diffAng * Math.PI / 180 *  i) * raio)));
                 img.Image = imgCoronga;
                 img.SizeMode = PictureBoxSizeMode.StretchImage;
                 this.Controls.Add(img);
-                //Console.WriteLine(centroX + Convert.ToInt32(Math.Cos(diffAng * Math.PI / 180 * i) * 2) + " , " + centroY + Convert.ToInt32(Math.Sin(diffAng * Math.PI / 180 * i) * 2));
-                Console.WriteLine(Math.Sin(diffAng * Math.PI / 180 * i) * 2);
+                //Console.WriteLine(centroX + Convert.ToInt32(Math.Cos(diffAng * Math.PI / 180 * i) * raio) + " , " + (centroY + Convert.ToInt32(Math.Sin(diffAng * Math.PI / 180 * i) * raio)));
             }
         }
   
